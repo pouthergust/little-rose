@@ -42,18 +42,28 @@ export default function Home() {
   } 
 
   return (
-    <div>
+    <div className={styles.pageWrapper}>
       <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <title>Little Rose</title>
+        <link rel="icon" href="/heart-logo.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/heart.png" className={styles.icon} />
-        <h3>Click para gerar uma frase</h3>
-        <input type="button" role="button" value="Gerar frase" onClick={onClick}/>
-        <div className={styles.result}>{result}</div>
+        <img src="/heart-logo.png" className={styles.logo} />
+        <div className={styles.content}>
+          <p>Click para gerar uma frase</p>
+          <button type="button"onClick={onClick} className={styles.button}>
+            Gerar frase
+          </button>
+          <div className={styles.result}>{result}</div>
+        </div>
       </main>
+
+      <footer className={styles.footer}>
+        <span>Feito com</span>
+        <img src="/heart-white.svg" className={styles.icon} />
+        <span>por mim</span>
+      </footer>
     </div>
   );
 }

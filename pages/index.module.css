@@ -13,52 +13,97 @@
   font-weight: bold;
   font-style: normal;
 }
-.main,
-.main input {
+
+.pageWrapper {
+  background-color: #EB5757;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  inset: 0;
+  position: fixed;
+  width: 100vw;
+}
+
+.pageWrapper::before {
+  background-color: #BB4141;
+  content: "";
+  display: block;
+  height: 100vh;
+  position: fixed;
+  width: 50vw;
+  z-index: -1;
+}
+
+.main {
   font-size: 16px;
   line-height: 24px;
-  color: #353740;
-  font-family: "ColfaxAI", Helvetica, sans-serif;
-}
-.main {
-  display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 60px;
+  text-align: center;
 }
-.main .icon {
-  width: 34px;
+
+.main,
+.footer {
+  color: #fff;
+  display: flex;
+  font-family: "ColfaxAI", Helvetica, sans-serif;
 }
-.main h3 {
-  font-size: 32px;
-  line-height: 40px;
+
+.logo {
+  margin-bottom: 50px;
+}
+
+.content {
+  max-width: 80%;
+  width: 520px;
+  margin: auto;
+}
+
+.main p {
+  font-size: 18px;
+  line-height: 21px;
   font-weight: bold;
-  color: #202123;
   margin: 16px 0 40px;
 }
 
-.main input[type="text"] {
-  padding: 12px 16px;
-  border: 1px solid #10a37f;
-  border-radius: 4px;
-  margin-bottom: 24px;
-  outline-color: #10a37f;
-}
-.main ::placeholder {
-  color: #8e8ea0;
-  opacity: 1;
-}
-.main input[type="submit"], .main input[type="button"] {
-  padding: 12px 0;
-  color: #fff;
-  background-color: #10a37f;
+.main .button {
+  background-color: #fff;
+  border-radius: 5px;
   border: none;
-  border-radius: 4px;
-  text-align: center;
+  color: #EB5757;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 56px;
+  padding: 12px 16px;
+  text-align: center;
+  max-width: 80%;
   width: 320px;
 }
+
 .main .result {
   font-weight: bold;
   margin-top: 40px;
+}
+
+.footer {
+  margin: auto auto 20px;
+  justify-content: center;
+  font-weight: 700;
+  max-width: fit-content;
+  transform: translateX(-6.5px);
+}
+
+.icon {
+  margin: 0 5px;
+}
+
+@media screen and (min-width: 640px) {
+  .main p {
+    font-size: 32px;
+  }
+  .result {
+    font-size: 20px;
+  }
 }
