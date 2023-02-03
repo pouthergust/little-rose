@@ -45,11 +45,11 @@ export default function Home() {
     <div className={styles.pageWrapper}>
       <Head>
         <title>Little Rose</title>
-        <link rel="icon" href="/heart-logo.png" />
+        <link rel="icon" href="/heart.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/heart-logo.png" className={styles.logo} />
+        <img src="/heart-logo.svg" className={styles.logo} />
         <div className={styles.content}>
           <p>Click para gerar uma frase</p>
           <button type="button"onClick={onClick} className={styles.button}>

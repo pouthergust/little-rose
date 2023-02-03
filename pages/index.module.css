@@ -52,6 +52,7 @@
 
 .logo {
   margin-bottom: 50px;
+  transform: translate(-1px);
 }
 
 .content {
