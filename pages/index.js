@@ -203,30 +203,30 @@ export default function Home() {
 
   async function onClick(event) {
     event.preventDefault();
-    // const keyword = keywords[getRandomNumber(0, keywords.length - 1)]
-    const randomNumber = getRandomNumber(0, 187);
-    const phrase = lovePhrases[randomNumber];
-    setResult(phrase);
-    // try {
-    //   const response = await fetch("/api/generate", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ keyword }),
-    //   });
+    // const randomNumber = getRandomNumber(0, 187);
+    // const phrase = lovePhrases[randomNumber];
+    // setResult(phrase);
+    const keyword = keywords[getRandomNumber(0, keywords.length - 1)]
+    try {
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ keyword }),
+      });
 
-    //   const data = await response.json();
-    //   if (response.status !== 200) {
-    //     throw data.error || new Error(`Request failed with status ${response.status}`);
-    //   }
+      const data = await response.json();
+      if (response.status !== 200) {
+        throw data.error || new Error(`Request failed with status ${response.status}`);
+      }
 
-    //   setResult(data.result);
-    // } catch(error) {
-    //   // Consider implementing your own error handling logic here
-    //   console.error(error);
-    //   alert(error.message);
-    // }
+      setResult(data.result);
+    } catch(error) {
+      // Consider implementing your own error handling logic here
+      console.error(error);
+      alert(error.message);
+    }
   }
   
   function getRandomNumber(min, max) {

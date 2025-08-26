@@ -1,15 +1,12 @@
-import { Configuration, OpenAIApi } from "openai";
+import Groq from "groq-sdk";
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 export default async function (req, res) {
-  if (!configuration.apiKey) {
+  if (!groq) {
     res.status(500).json({
       error: {
-        message: "OpenAI API key not configured, please follow instructions in README.md",
+        message: "API key not configured, please follow instructions in README.md",
       }
     });
     return;
@@ -26,13 +23,17 @@ export default async function (req, res) {
   }
 
   try {
-    const completion = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: generatePrompt(keyword),
-      temperature: 0.9,
-      max_tokens: 150,
-    });
-    res.status(200).json({ result: completion.data.choices[0].text });
+    // const completion = await openai.createCompletion({
+    //   model: "gpt-4o-mini",
+    //   prompt: generatePrompt(keyword),
+    //   temperature: 0.9,
+    //   max_tokens: 150,
+    // });
+    const completion = await groq.chat.completions.create({
+    messages: [{ role: "user", content: generatePrompt(keyword) }],
+    model: "openai/gpt-oss-20b",
+  });
+    res.status(200).json({ result: completion.choices[0]?.message?.content || "" });
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
