@@ -1,41 +1,75 @@
-# OpenAI API Quickstart - Node.js example app
+# Little Rose - Gerador de Frases Românticas
 
-This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
+O **Little Rose** é um aplicativo simples que gera frases românticas com base em palavras-chave. Ele utiliza o SDK do Groq para criar mensagens personalizadas e é construído com [Next.js](https://nextjs.org/) e [React](https://reactjs.org/).
 
-## Setup
+## Funcionalidades
 
-1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/) (Node.js version >= 14.6.0 required)
+- Geração de frases românticas com palavras-chave aleatórias.
+- Interface simples e intuitiva.
+- Integração com o Groq SDK para respostas criativas.
 
-2. Clone this repository
+## Pré-requisitos
 
-3. Navigate into the project directory
+- Node.js versão >= 14.6.0 ([instale aqui](https://nodejs.org/en/))
+- Ubuntu 24.04.2 LTS (dev container recomendado)
+- Chave de API do Groq ([obtenha aqui](https://console.groq.com/keys))
 
-   ```bash
-   $ cd openai-quickstart-node
-   ```
+## Instalação
 
-4. Install the requirements
-
-   ```bash
-   $ npm install
-   ```
-
-5. Make a copy of the example environment variables file
-
-   On Linux systems: 
-   ```bash
-   $ cp .env.example .env
-   ```
-   On Windows:
-   ```powershell
-   $ copy .env.example .env
-   ```
-6. Add your [API key](https://beta.openai.com/account/api-keys) to the newly created `.env` file
-
-7. Run the app
+1. Clone este repositório:
 
    ```bash
-   $ npm run dev
+   git clone <URL_DO_REPOSITORIO>
+   cd little-rose
    ```
 
-You should now be able to access the app at [http://localhost:3000](http://localhost:3000)! For the full context behind this example app, check out the [tutorial](https://beta.openai.com/docs/quickstart).
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Copie o arquivo de variáveis de ambiente de exemplo:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Adicione sua chave de API do Groq ao arquivo `.env`:
+
+   ```env
+   GROQ_API_KEY=<sua-chave-aqui>
+   ```
+
+5. Inicie a aplicação:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Acesse o aplicativo no navegador:
+
+   ```bash
+   $BROWSER http://localhost:3000
+   ```
+
+## Como usar
+
+1. Clique no botão "Gerar frase" na página inicial.
+2. O aplicativo selecionará uma palavra-chave aleatória e gerará uma frase romântica.
+3. A frase será exibida na tela.
+
+## Estrutura do Projeto
+
+- **`/pages/api/generate.js`**: Endpoint que utiliza o Groq SDK para gerar frases.
+- **`/pages/index.js`**: Interface principal do aplicativo.
+- **`/styles`**: Estilos CSS para a aplicação.
+
+## Recursos
+
+- [Documentação oficial do Groq SDK](https://console.groq.com/docs/overview)
+- [Next.js](https://nextjs.org/docs)
+
+---
+
+Atualizado para refletir as funcionalidades reais
